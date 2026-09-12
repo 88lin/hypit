@@ -58,9 +58,9 @@
       "types": "./dist/public/runtime-kit.d.ts",
       "import": "./packages/runtime-kit/src/index.ts"
     },
-    "./semantic-track": {
-      "types": "./dist/public/semantic-track.d.ts",
-      "import": "./packages/semantic-track/src/index.ts"
+    "./timeline": {
+      "types": "./dist/public/timeline.d.ts",
+      "import": "./packages/timeline/src/index.ts"
     },
     "./spatial": {
       "types": "./dist/public/spatial.d.ts",
@@ -97,6 +97,14 @@
     "./hyperframes": {
       "types": "./dist/public/hyperframes.d.ts",
       "import": "./packages/hyperframes/src/index.ts"
+    },
+    "./performance": {
+      "types": "./dist/public/performance.d.ts",
+      "import": "./packages/performance/src/index.ts"
+    },
+    "./sound": {
+      "types": "./dist/public/sound.d.ts",
+      "import": "./packages/sound/src/index.ts"
     }
   },
   "bin": {
@@ -169,12 +177,12 @@
     "node": ">=22.12.0"
   },
   "devDependencies": {
-    "@hypit/browser-capture": "workspace:*",
     "@hypit/artifact": "workspace:*",
     "@hypit/audio-track": "workspace:*",
     "@hypit/audio-track-studio": "workspace:*",
     "@hypit/author-kit": "workspace:*",
     "@hypit/background-removal": "workspace:*",
+    "@hypit/browser-capture": "workspace:*",
     "@hypit/build-result": "workspace:*",
     "@hypit/build-result-fs": "workspace:*",
     "@hypit/build-result-kit": "workspace:*",
@@ -209,6 +217,9 @@
     "@hypit/minimax-h3": "workspace:*",
     "@hypit/nano-banana": "workspace:*",
     "@hypit/narrative": "workspace:*",
+    "@hypit/performance": "workspace:*",
+    "@hypit/performance-studio": "workspace:*",
+    "@hypit/sound-studio": "workspace:*",
     "@hypit/program-space": "workspace:*",
     "@hypit/protocol": "workspace:*",
     "@hypit/provider-hyperframes-aws-lambda": "workspace:*",
@@ -236,19 +247,19 @@
     "@hypit/seedance": "workspace:*",
     "@hypit/seedance-kits": "workspace:*",
     "@hypit/seedream": "workspace:*",
-    "@hypit/semantic-track": "workspace:*",
+    "@hypit/sound": "workspace:*",
     "@hypit/spatial": "workspace:*",
     "@hypit/speech": "workspace:*",
     "@hypit/speech-alignment": "workspace:*",
     "@hypit/speech-evidence": "workspace:*",
-    "@hypit/speech-track": "workspace:*",
-    "@hypit/speech-track-studio": "workspace:*",
     "@hypit/store-sqlite": "workspace:*",
     "@hypit/studio-adapter": "workspace:*",
     "@hypit/svs": "workspace:*",
     "@hypit/temporal": "workspace:*",
     "@hypit/temporal-markup": "workspace:*",
     "@hypit/text": "workspace:*",
+    "@hypit/timeline": "workspace:*",
+    "@hypit/timeline-author": "workspace:*",
     "@hypit/typography-track": "workspace:*",
     "@hypit/typography-track-studio": "workspace:*",
     "@hypit/visual-ir": "workspace:*",

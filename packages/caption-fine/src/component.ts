@@ -1,7 +1,7 @@
+import type { Timeline } from "@hypit/timeline";
 import type { CaptionProgram, TimedCaptionProjection } from "@hypit/caption";
 import type { ComponentPackage } from "@hypit/component-kit";
 import type { CaptionDocument } from "@hypit/narrative";
-import type { ProgramSpace } from "@hypit/program-space";
 import type { StoredValue } from "@hypit/protocol";
 import { canonicalize } from "@hypit/protocol";
 import type { SpatialRegionTimeline } from "@hypit/spatial";
@@ -36,7 +36,7 @@ export const captionFineComponent = {
           inline<FineCaptionSchedule>(inputs.schedule?.value, "FineCaptionSchedule"),
           inline<CaptionProgram>(inputs.program?.value, "CaptionProgram"),
           inline<CaptionDocument>(inputs.document?.value, "CaptionDocument"),
-          inline<ProgramSpace>(inputs.space?.value, "ProgramSpace"),
+          inline<Timeline>(inputs.timeline?.value, "Timeline"),
         )) } },
         needs: {},
       }),
@@ -48,7 +48,7 @@ export const captionFineComponent = {
           inline<FineCaptionSchedule>(inputs.schedule?.value, "FineCaptionSchedule"),
           inline<CaptionProgram>(inputs.program?.value, "CaptionProgram"),
           inline<CaptionDocument>(inputs.document?.value, "CaptionDocument"),
-          inline<ProgramSpace>(inputs.space?.value, "ProgramSpace"),
+          inline<Timeline>(inputs.timeline?.value, "Timeline"),
           inline<SpatialRegionTimeline>(inputs.regions?.value, "SpatialRegionTimeline"),
         )) } },
         needs: {},

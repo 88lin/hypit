@@ -1,4 +1,5 @@
-import { programSpaceTypes } from "@hypit/program-space";
+import { timelineTypes } from "@hypit/timeline";
+
 import { compositionTypes } from "@hypit/composition";
 import type { VisualTrack } from "@hypit/composition";
 import { sealGraphFragment } from "@hypit/elaborator";
@@ -11,14 +12,14 @@ const operation = (id: string) => ({ kind: "fragment-operation" as const, operat
 /** Provider-free official lowering from TypographyTrackProgram to one peer VisualTrack. */
 export const typographyTrackFragment = sealGraphFragment({
   inputs: [
-    { name: "space", type: programSpaceTypes.programSpace },
+    { name: "timeline", type: timelineTypes.track },
     { name: "program", type: typographyTrackTypes.program },
   ],
   operations: [
     {
       id: "render",
       producer: typographyTrackProducers.render,
-      inputs: { space: input("space"), program: input("program") },
+      inputs: { timeline: input("timeline"), program: input("program") },
       result: { kind: "output", name: "track" },
     },
   ],

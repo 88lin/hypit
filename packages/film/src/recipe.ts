@@ -1,7 +1,8 @@
+import type { Timeline } from "@hypit/timeline";
 import type { SvsRecipe } from "@hypit/svs";
 
 /**
- * The Film Recipe owns Film appearance only. Canvas geometry and ProgramSpace
+ * The Film Recipe owns Film appearance only. Canvas geometry and Timeline
  * remain separate graph inputs and cannot be smuggled into a stylesheet.
  */
 

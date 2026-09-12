@@ -18,10 +18,10 @@ import runMarkup from "../../run-markup/src/activation.js";
 import script from "../../script/src/activation.js";
 import seedance from "../../seedance/src/activation.js";
 import speechAlignment from "../../speech-alignment/src/activation.js";
-import speechTrack from "../../speech-track/src/activation.js";
+import timelineAuthor from "../../timeline-author/src/activation.js";
 import speech from "../../speech/src/activation.js";
 import speechEvidence from "../../speech-evidence/src/activation.js";
-import semanticTrack from "../../semantic-track/src/activation.js";
+import timeline from "../../timeline/src/activation.js";
 import spatial from "../../spatial/src/activation.js";
 import temporal from "../../temporal/src/activation.js";
 import visualIr from "../../visual-ir/src/activation.js";
@@ -43,7 +43,7 @@ export const videoTestPackages = [
   bind("@hypit/program-space", programSpace),
   bind("@hypit/speech", speech),
   bind("@hypit/speech-evidence", speechEvidence),
-  bind("@hypit/semantic-track", semanticTrack),
+  bind("@hypit/timeline", timeline),
   bind("@hypit/visual-ir", visualIr),
   bind("@hypit/composition", composition),
   bind("@hypit/svs", svs),
@@ -56,7 +56,7 @@ export const videoTestPackages = [
   bind("@hypit/caption", caption),
   bind("@hypit/caption-fine", captionFine),
   bind("@hypit/speech-alignment", speechAlignment),
-  bind("@hypit/speech-track", speechTrack),
+  bind("@hypit/timeline-author", timelineAuthor),
   bind("@hypit/whisperx", whisperX),
   bind("@hypit/spatial", spatial),
   bind("@hypit/temporal", temporal),

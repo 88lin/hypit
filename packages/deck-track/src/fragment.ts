@@ -1,4 +1,5 @@
-import { programSpaceTypes } from "@hypit/program-space";
+import { timelineTypes } from "@hypit/timeline";
+
 import { artifactTypes } from "@hypit/artifact";
 import { compositionTypes } from "@hypit/composition";
 import { sealGraphFragment } from "@hypit/elaborator";
@@ -42,7 +43,7 @@ export function createDepthStackFragment(
     { name: "canvas", type: spatialTypes.canvas },
     { name: "frame", type: spatialTypes.frame },
     { name: "header", type: depthStackTypes.header },
-    { name: "space", type: programSpaceTypes.programSpace },
+    { name: "timeline", type: timelineTypes.track },
     { name: "spec", type: depthStackTypes.spec },
   ];
   const operations: FragmentOperation[] = [
@@ -107,7 +108,7 @@ export function createDepthStackFragment(
       producer: depthStackProducers.appendCard,
       inputs: {
         set: cardSet,
-        space: input("space"),
+        timeline: input("timeline"),
         material: operation(sampleId),
         label: input(card.labelName),
         spec: input(card.cardSpecName),
@@ -126,7 +127,7 @@ export function createDepthStackFragment(
       header: input("header"),
       frame: input("frame"),
       spec: input("spec"),
-      space: input("space"),
+      timeline: input("timeline"),
       terminal: input(terminalName),
     },
     result: { kind: "output", name: "program" },
@@ -134,7 +135,7 @@ export function createDepthStackFragment(
   operations.push({
     id: "track",
     producer: depthStackProducers.render,
-    inputs: { canvas: input("canvas"), space: input("space"), program: operation("program") },
+    inputs: { canvas: input("canvas"), timeline: input("timeline"), program: operation("program") },
     result: { kind: "output", name: "track" },
   });
   return sealGraphFragment({

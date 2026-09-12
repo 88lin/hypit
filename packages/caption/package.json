@@ -15,8 +15,9 @@
     "@hypit/elaborator": "workspace:*",
     "@hypit/narrative": "workspace:*",
     "@hypit/protocol": "workspace:*",
-    "@hypit/semantic-track": "workspace:*",
-    "@hypit/markup": "workspace:*"
+    "@hypit/timeline": "workspace:*",
+    "@hypit/markup": "workspace:*",
+    "@hypit/temporal": "workspace:*"
   },
   "devDependencies": {
     "@hypit/program-space": "workspace:*",

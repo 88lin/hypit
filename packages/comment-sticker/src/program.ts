@@ -1,3 +1,4 @@
+import type { Timeline } from "@hypit/timeline";
 import {
   assertVisualTrackIdentity,
   sealVisualTrack,
@@ -12,7 +13,6 @@ import type {
 } from "@hypit/composition";
 import { assertFontArtifactRef } from "@hypit/media";
 import { assertProgramSpaceIdentity } from "@hypit/program-space";
-import type { ProgramSpace } from "@hypit/program-space";
 import { canonicalize, isResourceId } from "@hypit/protocol";
 import type { BlobRef } from "@hypit/protocol";
 import { assertCanvasSpace, assertSpatialFrame } from "@hypit/spatial";
@@ -195,7 +195,7 @@ export function assertCommentStickerSet(value: CommentStickerSet): void {
 function realized(
   set: CommentStickerSet,
   header: CommentStickerHeader,
-  space: ProgramSpace,
+  timeline: Timeline,
   frame: SpatialFrame,
   style: CommentStickerStyle,
   spec: CommentStickerItemSpec,
@@ -229,7 +229,7 @@ function realized(
 export function appendProjectedCommentSticker(
   set: CommentStickerSet,
   header: CommentStickerHeader,
-  space: ProgramSpace,
+  timeline: Timeline,
   frame: SpatialFrame,
   style: CommentStickerStyle,
   spec: CommentStickerItemSpec,
@@ -237,8 +237,8 @@ export function appendProjectedCommentSticker(
   window: ProjectedWindow,
   avatar?: BlobRef,
 ): CommentStickerSet {
-  assertTemporalWindowFor(window, { subjectId: spec.id, space });
-  return realized(set, header, space, frame, style, spec, content, window, avatar);
+  assertTemporalWindowFor(window, { subjectId: spec.id, space: timeline });
+  return realized(set, header, timeline, frame, style, spec, content, window, avatar);
 }
 
 export function assertCommentStickerProgram(value: CommentStickerProgram): void {
@@ -589,12 +589,12 @@ function stickerElements(item: CommentStickerItemProgram): readonly VisualElemen
   return elements;
 }
 
-export function renderCommentSticker(canvas: CanvasSpace, space: ProgramSpace, program: CommentStickerProgram): VisualTrack {
+export function renderCommentSticker(canvas: CanvasSpace, timeline: Timeline, program: CommentStickerProgram): VisualTrack {
   assertCanvasSpace(canvas);
-  assertProgramSpaceIdentity(space);
+  assertProgramSpaceIdentity(timeline);
   assertCommentStickerProgram(program);
   const track = sealVisualTrack({
-    programSpaceId: space.id,
+    programSpaceId: timeline.id,
     visualIr: "hypit.visual-ir@1",
     id: program.id,
     presents: program.items.map((item) => ({
@@ -605,6 +605,6 @@ export function renderCommentSticker(canvas: CanvasSpace, space: ProgramSpace, p
       elements: stickerElements(item),
     })),
   });
-  assertVisualTrackIdentity(track, space);
+  assertVisualTrackIdentity(track, timeline);
   return track;
 }

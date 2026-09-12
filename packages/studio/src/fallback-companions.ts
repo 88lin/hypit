@@ -1,7 +1,7 @@
 import type { StudioTrackCompanion, StudioTrackCompanionContext, StudioEntityDraft } from "@hypit/studio-adapter";
 import { artifactPreview, previewLayer, temporalLineageFor, temporalSemanticSource } from "@hypit/studio-adapter";
 import { compositionTypes } from "@hypit/composition";
-import { semanticTrackTypes } from "@hypit/semantic-track";
+import { timelineTypes } from "@hypit/timeline";
 
 type TerminalVisualTrack = {
   readonly presents?: readonly {
@@ -79,8 +79,8 @@ function projectTerminalAudio(context: StudioTrackCompanionContext): readonly St
 /** Cross-domain terminal protocols understood even when no Companion is installed. */
 export const fallbackStudioTrackCompanions: readonly StudioTrackCompanion[] = [
   {
-    id: "@hypit/studio#semantic-track", role: "semantic-track", output: { type: semanticTrackTypes.track },
-    family: "semantic", tone: "teal", label: "Semantic", icon: "brand",
+    id: "@hypit/studio#timeline", role: "timeline", output: { type: timelineTypes.track },
+    family: "semantic", tone: "teal", label: "Timeline", icon: "brand",
     lane: { heightPx: 45 },
   },
   {

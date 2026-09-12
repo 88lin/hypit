@@ -1,8 +1,9 @@
+import { sealTimeline } from "@hypit/timeline";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { videoContractManifests } from "../../../test/support/video-domain.js";
 import { fixtureResource } from "../../../test/fixture-resource.js";
-import { semanticTrackFixture } from "../../../test/semantic-track-fixture.js";
+import { timelineFixture } from "../../../test/timeline-fixture.js";
 
 import { compositionDependency, compositionTypes } from "@hypit/composition";
 import type { VisualElement, VisualTimedSampling } from "@hypit/composition";
@@ -39,7 +40,7 @@ import type { MediaLayerSet } from "@hypit/media-track";
 import { narrativeTypes } from "@hypit/narrative";
 import { sealProgramSpace } from "@hypit/program-space";
 import type { ModuleManifest } from "@hypit/protocol";
-import { semanticTrackTypes } from "@hypit/semantic-track";
+import { timelineTypes } from "@hypit/timeline";
 import { temporalTypes } from "@hypit/temporal";
 import type { TemporalInstant } from "@hypit/temporal";
 import { sealCanvasSpace, sealSpatialFrame, spatialTypes } from "@hypit/spatial";
@@ -55,10 +56,10 @@ import type {
 import { artifactTypes } from "@hypit/artifact";
 import { mediaTrackManifest, mediaTrackTypes } from "@hypit/media-track";
 
-const space = sealProgramSpace({ id: "test-space", durationSec: 2,
+const space = sealTimeline({ items: [], id: "test-space", durationSec: 2,
   frameRate: { numerator: 30, denominator: 1 },
 });
-const semantic = semanticTrackFixture(space);
+const semantic = timelineFixture(space);
 const canvas = sealCanvasSpace({
   widthPx: 360,
   heightPx: 640,
@@ -420,7 +421,7 @@ test("the author Surface keeps every source, trigger, terminal, Frame and option
     record: { value: { kind: "inline", value: { path, properties } } } as never,
   });
   const references = new Map<string, SurfaceResolvedReference>([
-    ["semantic", plain("semantic", semanticTrackTypes.track)],
+    ["semantic", plain("semantic", timelineTypes.track)],
     ["canvas", plain("canvas", spatialTypes.canvas)], ["frame", plain("frame", spatialTypes.frame)],
     ["first", plain("first", artifactTypes.blob)], ["first-extent", plain("first-extent", spatialTypes.extent)],
     ["second", plain("second", mediaTypes.synchronized)], ["one", plain("one", narrativeTypes.moment)],
@@ -431,7 +432,7 @@ test("the author Surface keeps every source, trigger, terminal, Frame and option
   const result = await decodeDepthStackSurface({
     sourceName: "deck.svml",
     element: node("deck:DepthStack", {
-      id: "proof", semantic: ref("semantic"), canvas: ref("canvas"), frame: ref("frame"),
+      id: "proof", timeline: ref("semantic"), canvas: ref("canvas"), frame: ref("frame"),
       appearance: ref("deck-style"), until: ref("terminal"),
     }, [
       node("deck:Card", { id: "one", source: ref("first"), extent: ref("first-extent"), at: ref("one") }),

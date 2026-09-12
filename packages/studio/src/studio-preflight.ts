@@ -1,7 +1,7 @@
 import type { Candidate } from "@hypit/protocol";
 import { sameType } from "@hypit/protocol";
 import type { StudioFilmCompanion } from "@hypit/studio-adapter";
-import { semanticTrackTypes } from "@hypit/semantic-track";
+import { timelineTypes } from "@hypit/timeline";
 
 import type { CompiledSource } from "./compile.js";
 import type { Placement } from "./observe.js";
@@ -137,7 +137,7 @@ export function inspectStudioRun(
   });
   const timeOutput = times[0];
   if (times.length !== 1) issues.push("Film requires one traceable time source.");
-  const semanticOutput = timeOutput !== undefined && sameType(timeOutput.typeRef, semanticTrackTypes.track) ? timeOutput : undefined;
+  const semanticOutput = timeOutput !== undefined && sameType(timeOutput.typeRef, timelineTypes.track) ? timeOutput : undefined;
   let companionValueRefs: readonly string[] = [];
   try {
     companionValueRefs = unique(filmTrackRefs.flatMap((ref) =>
@@ -149,7 +149,7 @@ export function inspectStudioRun(
 
   const projectionRefs = unique([
     ...filmTrackRefs,
-    ...(semanticOutput !== undefined && sameType(semanticOutput.typeRef, semanticTrackTypes.track) ? [semanticOutput.ref] : []),
+    ...(semanticOutput !== undefined && sameType(semanticOutput.typeRef, timelineTypes.track) ? [semanticOutput.ref] : []),
     ...companionValueRefs,
   ]);
   const projections: StudioViewRequirement[] = [];

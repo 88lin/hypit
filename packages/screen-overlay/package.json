@@ -13,7 +13,7 @@
     "@hypit/narrative": "workspace:*",
     "@hypit/protocol": "workspace:*",
     "@hypit/program-space": "workspace:*",
-    "@hypit/semantic-track": "workspace:*",
+    "@hypit/timeline": "workspace:*",
     "@hypit/spatial": "workspace:*",
     "@hypit/temporal": "workspace:*",
     "@hypit/temporal-markup": "workspace:*",

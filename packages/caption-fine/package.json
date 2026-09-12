@@ -19,10 +19,12 @@
     "@hypit/narrative": "workspace:*",
     "@hypit/program-space": "workspace:*",
     "@hypit/protocol": "workspace:*",
-    "@hypit/semantic-track": "workspace:*",
+    "@hypit/timeline": "workspace:*",
     "@hypit/spatial": "workspace:*",
     "@hypit/svs": "workspace:*",
-    "@hypit/markup": "workspace:*"
+    "@hypit/markup": "workspace:*",
+    "@hypit/temporal": "workspace:*",
+    "@hypit/temporal-markup": "workspace:*"
   },
   "devDependencies": {
     "@hypit/script": "workspace:*"

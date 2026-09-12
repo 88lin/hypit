@@ -11,9 +11,10 @@ export const videoStudioCompanionPackages = [
   "@hypit/deck-track-studio",
   "@hypit/film-studio",
   "@hypit/media-track-studio",
+  "@hypit/performance-studio",
   "@hypit/ranking-studio",
   "@hypit/screen-overlay-studio",
   "@hypit/script-studio",
-  "@hypit/speech-track-studio",
+  "@hypit/sound-studio",
   "@hypit/typography-track-studio",
 ] as const;

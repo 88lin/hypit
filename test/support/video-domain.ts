@@ -3,7 +3,7 @@ import { compositionComponent, compositionManifest } from "@hypit/composition";
 import { mediaComponent, mediaManifest } from "@hypit/media";
 import { narrativeManifest } from "@hypit/narrative";
 import { programSpaceManifest } from "@hypit/program-space";
-import { semanticTrackManifest } from "@hypit/semantic-track";
+import { timelineManifest } from "@hypit/timeline";
 import { spatialComponent, spatialManifest } from "@hypit/spatial";
 import { speechManifest } from "@hypit/speech";
 import { speechEvidenceManifest } from "@hypit/speech-evidence";
@@ -20,7 +20,7 @@ export const videoContractManifests = [
   speechManifest,
   speechEvidenceManifest,
   svsManifest,
-  semanticTrackManifest,
+  timelineManifest,
   spatialManifest,
   temporalManifest,
   visualIrManifest,

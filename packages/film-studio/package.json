@@ -9,7 +9,7 @@
   "dependencies": {
     "@hypit/composition": "workspace:*",
     "@hypit/film": "workspace:*",
-    "@hypit/semantic-track": "workspace:*",
+    "@hypit/timeline": "workspace:*",
     "@hypit/studio-adapter": "workspace:*",
     "@hypit/program-space": "workspace:*"
   }

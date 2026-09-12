@@ -20,7 +20,7 @@
     "@hypit/media-pipeline": "workspace:*",
     "@hypit/program-space": "workspace:*",
     "@hypit/protocol": "workspace:*",
-    "@hypit/semantic-track": "workspace:*",
+    "@hypit/timeline": "workspace:*",
     "@hypit/markup": "workspace:*",
     "@hypit/temporal-markup": "workspace:*"
   },

@@ -2,22 +2,22 @@ import { sealVisualTrack } from "@hypit/hypit/composition";
 import type { VisualElement } from "@hypit/hypit/composition";
 import { browserProgram } from "@hypit/hypit/hyperframes";
 import type { FontArtifactRef } from "@hypit/hypit/media";
-import { projectSemanticMedia, projectSemanticProgramSpace } from "@hypit/hypit/semantic-track";
-import type { SemanticTrack } from "@hypit/hypit/semantic-track";
+import { projectTimelineMedia, projectTimelineSpace } from "@hypit/hypit/timeline";
+import type { Timeline } from "@hypit/hypit/timeline";
 import type { CanvasSpace } from "@hypit/hypit/spatial";
 import type { TemporalInstant, TemporalWindow } from "@hypit/hypit/temporal";
 
 export type ExplainerOptions = { id: string; title: string; transitionFrames: number; stackingOrder: number };
 
 /** One scene owns the moving performance viewport and the diagram it makes room for. */
-export function renderExplainer(semantic: SemanticTrack, canvas: CanvasSpace, window: TemporalWindow,
+export function renderExplainer(semantic: Timeline, canvas: CanvasSpace, window: TemporalWindow,
   reveal: TemporalInstant, fonts: readonly FontArtifactRef[], options: ExplainerOptions) {
-  const space = projectSemanticProgramSpace(semantic);
+  const space = projectTimelineSpace(semantic);
   if (window.start.source.spaceId !== space.id || reveal.source.spaceId !== space.id)
     throw new Error("Explainer timing must belong to its semantic performance.");
   if (!Number.isSafeInteger(options.transitionFrames) || options.transitionFrames < 1)
     throw new Error("Explainer transitionFrames must be a positive integer.");
-  const clips = projectSemanticMedia(semantic, window.span).filter(clip => clip.media.visual !== undefined);
+  const clips = projectTimelineMedia(semantic, window.span).filter(clip => clip.media.visual !== undefined);
   const videos: VisualElement[] = clips.map((clip, i) => ({
     id: `take-${i}`, parent: "scene", kind: "video", order: i + 1,
     artifact: clip.media.visual!.artifact, muted: true,

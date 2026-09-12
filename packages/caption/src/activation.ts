@@ -1,7 +1,7 @@
 import { createMarkupSurfaceHostFacet } from "@hypit/markup";
 import {
   captionComponent, captionManifest, captionModuleRef,
-  decodeCaptionProgramSurface,
+  decodeHiddenCaptionStyleSurface,
   captionMarkupSurfaces,
 } from "./index.js";
 
@@ -11,7 +11,7 @@ export const hypitPackage = {
   components: [captionComponent],
   hostFacets: [
     createMarkupSurfaceHostFacet({ module: captionModuleRef,
-    declaration: captionMarkupSurfaces.find((item) => item.name === "program")!, handler: decodeCaptionProgramSurface }),
+    declaration: captionMarkupSurfaces.find((item) => item.name === "hidden")!, handler: decodeHiddenCaptionStyleSurface }),
   ],
 };
 export default hypitPackage;

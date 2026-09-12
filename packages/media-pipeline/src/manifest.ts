@@ -3,7 +3,7 @@ import { mediaDependency, mediaTypes } from "@hypit/media";
 import { programSpaceDependency, programSpaceTypes } from "@hypit/program-space";
 import { svsModuleRef, svsRecipeType } from "@hypit/svs";
 import { speechDependency, speechTypes } from "@hypit/speech";
-import { compositionDependency, compositionTypes } from "@hypit/composition";
+import { compositionDependency, compositionTypes, audioSampleSpanSchema, audioGainEnvelopeSchema } from "@hypit/composition";
 import { artifactTypes } from "@hypit/artifact";
 import type {
   CapabilityRef,
@@ -237,6 +237,8 @@ export const audioProgramPlanSchema: ValueSchema = {
         gain: { schema: { kind: "number", minimum: 0, maximum: 64 } },
         fadeInSamples: { schema: integer },
         fadeOutSamples: { schema: integer },
+        gainEnvelope: { schema: audioGainEnvelopeSchema, optional: true },
+        audibility: { schema: { kind: "array", items: audioSampleSpanSchema }, optional: true },
       },
     } } },
     mix: { schema: {

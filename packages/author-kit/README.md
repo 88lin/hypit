@@ -4,7 +4,7 @@ Small public framework API for an Author Package.
 
 It joins four stable authoring boundaries: nominal Module declarations, deterministic component
 handlers, sealed Graph Fragments and Markup Surface handlers. Domain facts still come from their
-owners—for example `@hypit/composition`, `@hypit/semantic-track` and `@hypit/spatial`. This package
+owners—for example `@hypit/composition`, `@hypit/timeline` and `@hypit/spatial`. This package
 does not re-export the video vocabulary or turn those packages into one central object.
 
 `@hypit/hypit/author-kit` contains no registry, package search, installer, Runtime, Provider or Studio

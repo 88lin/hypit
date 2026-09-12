@@ -1,6 +1,7 @@
+import { timelineProducers, timelineTypes } from "@hypit/timeline";
 import { mediaTypes } from "@hypit/media";
 import { artifactTypes } from "@hypit/artifact";
-import { programSpaceTypes } from "@hypit/program-space";
+
 import { compositionTypes } from "@hypit/composition";
 import { sealGraphFragment } from "@hypit/elaborator";
 import { hyperframesProducers } from "@hypit/hyperframes";
@@ -17,14 +18,16 @@ export function createRenderHyperframesFragment(selectedRange = false) {
   return sealGraphFragment({
     inputs: [
       { name: "composition", type: compositionTypes.composition },
-      { name: "space", type: programSpaceTypes.programSpace },
+      { name: "timeline", type: timelineTypes.track },
       ...(selectedRange ? [{ name: "range", type: mediaTypes.frameRange }] : []),
     ],
     operations: [
+      { id: "render-range", producer: timelineProducers.projectProgramSpace,
+        inputs: { track: input("timeline") }, result: { kind: "output", name: "space" } },
       {
         id: "compile-document",
         producer: hyperframesProducers.compile,
-        inputs: { composition: input("composition"), space: input("space") },
+        inputs: { composition: input("composition"), space: operation("render-range") },
         result: { kind: "output", name: "document" },
       },
       {
@@ -36,7 +39,7 @@ export function createRenderHyperframesFragment(selectedRange = false) {
       {
         id: "compile-audio-program",
         producer: mediaPipelineProducers.planAudio,
-        inputs: { composition: input("composition"), space: input("space") },
+        inputs: { composition: input("composition"), space: operation("render-range") },
         result: { kind: "output", name: "plan" },
       },
       {
