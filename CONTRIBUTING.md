@@ -34,6 +34,7 @@ Live Builds additionally need Python 3.10–3.13, uv, ffmpeg and Chromium. The
 | A new Author Package | [Adding an Author Package](https://hypit.ai/guide/author-packages/) |
 | A new Provider | [Adding a Provider](https://hypit.ai/guide/providers/) |
 | Component internals | [Component Anatomy](https://hypit.ai/guide/component-anatomy/) |
+| Studio interface translations | [Localizing Studio](packages/studio/LOCALIZATION.md) |
 | Compilation, Runs and Builds | [Runtime](https://hypit.ai/guide/runtime/) |
 | Naming, module boundaries, wire data | [Conventions](https://hypit.ai/guide/conventions/) |
 | Tests and environment-gated suites | [Testing](https://hypit.ai/guide/testing/) |
