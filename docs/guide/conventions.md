@@ -11,7 +11,7 @@ These conventions describe work inside the Hypit repository. Project extensions 
 |---|---|---|
 | Package directory | kebab-case | `packages/speech-alignment/` |
 | Package name | `@hypit/` scope | `@hypit/speech-alignment` |
-| Provider package | `provider-` prefix | `@hypit/provider-kie` |
+| Provider package | `provider-` prefix | `@studio/provider-images` |
 | TypeScript file | kebab-case | `align.ts` |
 | Exported type | PascalCase | `SpeechAlignment` |
 | Exported function | camelCase | `createSpeechAlignment` |

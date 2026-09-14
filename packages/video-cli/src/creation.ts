@@ -2,7 +2,8 @@ import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 
-import { findRuntimeProfile, loadDiscoveredSourcePackages, resolveProjectRoot } from "@hypit/cli";
+import { loadDiscoveredSourcePackages } from "@hypit/cli";
+import { findRuntimeProfile, resolveProjectRoot } from "@hypit/project-context-node";
 import type { CliIo } from "@hypit/cli";
 import { MemoryResourceStore } from "@hypit/driver-node";
 import {
@@ -14,7 +15,7 @@ import {
 } from "@hypit/estimate";
 import type { CanonicalValue, CapabilityRef, Need, StoredValue } from "@hypit/protocol";
 import type { ResourceStore } from "@hypit/runtime";
-import type { RuntimeHostCapabilityProvider, RuntimeHostProviderQuery } from "@hypit/runtime-host-node";
+import type { RuntimeHostCapabilityProvider, RuntimeHostProviderQuery, RuntimeInvocationObservation } from "@hypit/runtime-host-node";
 import { sealSpeechEvidenceAudio } from "@hypit/speech";
 import { speechEvidenceTypes } from "@hypit/speech-evidence";
 import type { AlignedTranscriptEvidence } from "@hypit/speech-evidence";
@@ -32,7 +33,7 @@ export type CreationCommand = typeof creationCommands[number];
 /** The slice of the Runtime host these commands use; tests hand in a fake. */
 export type CreationHost = {
   providers(requests: readonly RuntimeHostProviderQuery[]): Promise<readonly RuntimeHostCapabilityProvider[]>;
-  invoke(need: Need, resources: ResourceStore): Promise<{ readonly value: StoredValue }>;
+  invoke(need: Need, resources: ResourceStore, observation?: RuntimeInvocationObservation): Promise<{ readonly value: StoredValue }>;
 };
 
 export type CreationEnvironment = {
@@ -297,7 +298,16 @@ async function transcribe(argv: readonly string[], io: CliIo, environment: Creat
   };
   const provider = await selectedProvider(host, need, profile);
   if (!parsed.json) io.write(`Transcribing through ${providerLine(provider)}\n`);
-  const fulfillment = await host.invoke(need, resources);
+  const report = parsed.json ? io.writeProgress : io.writeProgress ?? io.write;
+  let previousPhase: string | undefined;
+  const fulfillment = await host.invoke(need, resources, {
+    reportProgress: async (progress) => {
+      if (progress.phase === previousPhase) return;
+      previousPhase = progress.phase;
+      report?.(`  · ${progress.phase}\n`);
+    },
+    reportDiagnostic: async (diagnostic) => { report?.(`  · ${diagnostic.message}\n`); },
+  });
   assert(fulfillment.value.kind === "inline", "the transcript came back by reference");
   const passages = passagesInSeconds(fulfillment.value.value as unknown as AlignedTranscriptEvidence);
   const words = passages.reduce((total, passage) => total + passage.words.length, 0);

@@ -20,6 +20,7 @@
     "@hypit/markup": "workspace:*",
     "@hypit/model-kit": "workspace:*",
     "@hypit/package-loader-node": "workspace:*",
+    "@hypit/project-context-node": "workspace:*",
     "@hypit/protocol": "workspace:*",
     "@hypit/provider-hypihub": "workspace:*",
     "@hypit/runtime": "workspace:*",

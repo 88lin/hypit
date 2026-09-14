@@ -28,6 +28,7 @@
     "@hypit/performance-studio": "workspace:*",
     "@hypit/sound-studio": "workspace:*",
     "@hypit/program-space": "workspace:*",
+    "@hypit/project-context-node": "workspace:*",
     "@hypit/protocol": "workspace:*",
     "@hypit/ranking-studio": "workspace:*",
     "@hypit/run": "workspace:*",

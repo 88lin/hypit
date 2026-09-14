@@ -4,22 +4,9 @@
   "credentials": {
     "os": {
       "use": "@hypit/credential-store-os"
-    },
-    "env": {
-      "use": "@hypit/credential-store-env"
     }
   },
   "endpoints": {
-    "kie.default": {
-      "use": "@hypit/provider-kie",
-      "config": {
-        "apiKey": {
-          "store": "env",
-          "key": "KIE_API_KEY"
-        },
-        "defaultConcurrency": 10
-      }
-    },
     "media.local": {
       "use": "@hypit/provider-media-local",
       "config": {
@@ -38,6 +25,15 @@
         "workers": 2,
         "quality": "standard",
         "defaultConcurrency": 1
+      }
+    },
+    "hypihub.default": {
+      "use": "@hypit/provider-hypihub",
+      "config": {
+        "apiKey": {
+          "store": "os",
+          "key": "hypihub.default"
+        }
       }
     }
   }

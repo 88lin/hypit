@@ -28,7 +28,7 @@ export { runCaptureCli, writeCaptureHelp } from "./capture.js";
 export { listPackages, listSurfaces, runVocabularyCli, visualSchema, writeVocabularyHelp } from "./vocabulary.js";
 export type { PackageListing, SurfaceListing } from "./vocabulary.js";
 /** The project's selected Runtime Profile, read the way `hypit` reads it, for tools that run beside the CLI. */
-export { findRuntimeProfile } from "@hypit/cli";
+export { findRuntimeProfile } from "@hypit/project-context-node";
 
 export function runVideoCli(
   argv: readonly string[],
