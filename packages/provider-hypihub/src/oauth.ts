@@ -65,7 +65,7 @@ export function createHypiHubAuth(options: {
       throw new Error("HypiHub OAuth credential is read-only; run hypit auth login with a writable Credential Store");
     }
     refreshing = (async () => {
-      const deadline = requestDeadline(options.requestTimeoutMs);
+      const deadline = requestDeadline(options.requestTimeoutMs, () => new Error("HypiHub OAuth refresh timed out"));
       try {
         const response = await deadline.wait(options.fetch(tokenEndpoint, {
           method: "POST",
