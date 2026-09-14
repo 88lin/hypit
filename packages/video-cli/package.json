@@ -33,6 +33,6 @@
     "@hypit/whisperx": "workspace:*",
     "@hypit/workspace-fs-node": "workspace:*",
     "@hypit/yt-dlp": "workspace:*",
-    "sharp": "0.35.3"
+    "sharp": "0.35.4"
   }
 }
