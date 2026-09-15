@@ -267,12 +267,20 @@ test("HypiHub returns its current model-pricing document", async () => {
   }]);
 });
 
-test("HypiHub prices the wire route selected by an authored future input", async () => {
+test("HypiHub retains operation prices when canonical-model references are still pending", async () => {
+  const rateCard = {
+    object: "model_pricing", model: "gpt-image-2",
+    pricing: { mode: "per_image", per_image_usd: 0.03 },
+    operations: [
+      { operation: "text-to-image", pricing: { mode: "per_image", per_image_usd: 0.03 } },
+      { operation: "image-to-image", pricing: { mode: "per_image", per_image_usd: 0.05 } },
+    ],
+  };
   const provider = createHypiHubProvider({
     pricingRequestTimeoutMs: 1_000,
     fetch: async (input) => {
       assert.equal(String(input), "https://hypit.ai/v1/pricing?model=gpt-image-2");
-      return Response.json({ object: "model_pricing", model: "gpt-image-2" });
+      return Response.json(rateCard);
     },
   });
   const request = {
@@ -287,10 +295,7 @@ test("HypiHub prices the wire route selected by an authored future input", async
     request,
     credentials: async () => ({ apiKey: { secret: "test-key" } }),
   });
-  assert.deepEqual(document?.data, {
-    object: "model_pricing",
-    model: "gpt-image-2",
-  });
+  assert.deepEqual(document?.data, rateCard);
 });
 
 test("HypiHub doctor leaves expired OAuth refresh validity unknown without misidentifying the Store", async () => {
@@ -320,6 +325,30 @@ test("HypiHub doctor checks the authenticated catalogue only when actively invok
   });
   assert.equal(calls, 1);
   assert.deepEqual(diagnostics, []);
+});
+
+test("HypiHub doctor recognizes canonical cards without legacy aliases or substituting variants", async () => {
+  const cards = [
+    { id: "gpt-image-2", endpoints: ["images", "image_edits"] },
+    { id: "seedream-5-lite", endpoints: ["images", "image_edits"] },
+    { id: "minimax-h3", endpoints: ["videos"] },
+    { id: "grok-imagine-video", endpoints: ["videos"] },
+    { id: "seedance-2-mini", endpoints: ["videos"] },
+  ];
+  const capabilities = [
+    { module: { name: "@hypit/gpt-image", version: "1" }, name: "gpt-image-2" },
+    { module: { name: "@hypit/seedream", version: "1" }, name: "seedream-5-lite" },
+    { module: { name: "@hypit/minimax-h3", version: "1" }, name: "minimax-h3" },
+    { module: { name: "@hypit/grok-imagine", version: "1" }, name: "grok-imagine-video" },
+    seedanceEndpoints.mini!.capability,
+    { module: { name: "@hypit/grok-imagine", version: "1" }, name: "grok-imagine-video-1.5-preview" },
+  ];
+  const diagnostics = await diagnoseHypiHubProvider({
+    fetch: async () => Response.json({ data: cards }),
+  }, { credentials: { apiKey: { secret: "test-key" } }, capabilities });
+  assert.equal(diagnostics.length, 1);
+  assert.equal(diagnostics[0]?.code, "HYPIHUB_CAPABILITY_UNAVAILABLE");
+  assert.match(diagnostics[0]!.message, /grok-imagine-video-1\.5-preview/u);
 });
 
 test("HypiHub declares both MiMo speech capabilities; who serves them is the Profile's binding", async () => {
