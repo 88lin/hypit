@@ -198,6 +198,10 @@ commands and the repository layout.
   </tr>
 </table>
 
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=hypit-ai/hypit&type=Date)](https://www.star-history.com/#hypit-ai/hypit&Date)
+
 ## License
 
 Hypit is released under the [Hypit Open Source License](./LICENSE). The videos and other outputs you create belong to you; third-party models and services may have their own terms.
