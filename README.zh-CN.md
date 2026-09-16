@@ -136,7 +136,7 @@ HypiHub 是我们推荐的托管模型服务，也可以使用你自己的 API �
 编程 Agent 可以直接使用 `/hypit` skill。在任意空目录或现有项目目录中开启会话，让 Agent 为你创建视频：
 
 ```text
-/hypit 复刻这个视频：/path/to/video
+/hypit 复刻这个视频：/path/to/video.mp4，把排行榜内容换成 Hypit（官网：hypit.ai）与其他 AI 视频产品的对比。
 ```
 
 也可以不提供参考视频，直接从描述开始：

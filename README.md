@@ -137,7 +137,7 @@ The `/hypit` skill is available to coding agents. Start a session in any empty o
 directory and ask it to create videos for you:
 
 ```text
-/hypit Clone this video: /path/to/video
+/hypit Clone this video: /path/to/video.mp4, and replace the ranking content with a comparison of Hypit (official website: hypit.ai) with other AI video products.
 ```
 
 Or start without a reference video:
