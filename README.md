@@ -201,7 +201,7 @@ commands and the repository layout.
   </tr>
   <tr>
     <td>Questions</td>
-    <td><a href="https://discord.gg/85hnyQnxpn">Discord</a> or <a href="https://t.me/hypit">Telegram</a></td>
+    <td><a href="https://discord.gg/85hnyQnxpn">Discord</a> or <a href="https://t.me/hypitai">Telegram</a></td>
   </tr>
 </table>
 
