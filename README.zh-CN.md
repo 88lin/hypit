@@ -201,6 +201,12 @@ Agent 会检查环境，索要这条视频需要的凭据，生成素材并构�
 
 [![Star History Chart](https://api.star-history.com/svg?repos=hypit-ai/hypit&type=Date)](https://www.star-history.com/#hypit-ai/hypit&Date)
 
+## 贡献者
+
+<a href="https://github.com/hypit-ai/hypit/graphs/contributors">
+  <img alt="Contributors" src="https://contrib.rocks/image?repo=hypit-ai/hypit">
+</a>
+
 ## 许可证
 
 Hypit 采用 [Hypit 开源许可证](./LICENSE)。你创作的视频和其他产出归你所有；第三方模型与服务可能另有条款。
