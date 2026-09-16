@@ -95,4 +95,4 @@ npm 包的 Trusted Publisher 应配置 GitHub Actions：组织 `hypit-ai`、仓�
 
 ## 获取帮助
 
-在 [Discord](https://discord.gg/85hnyQnxpn) 或 [Telegram](https://t.me/hypit) 提问。
+在 [Discord](https://discord.gg/85hnyQnxpn) 或 [Telegram](https://t.me/hypitai) 提问。
