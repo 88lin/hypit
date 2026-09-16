@@ -19,8 +19,6 @@ process.emitWarning = function hypitWarning(warning, ...args) {
 };
 
 const distributionRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-process.env.HYPIT_CLI_LAUNCHER ??= import.meta.filename;
-process.env.HYPIT_DISTRIBUTION_ROOT ??= distributionRoot;
 register();
 const {
   installDistributionPackageResolution,
