@@ -4,6 +4,21 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import { runVersionCli } from "../src/version.js";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+test("the launched Distribution ignores inherited installation and launcher hints", () => {
+  const root = fileURLToPath(new URL("../../../", import.meta.url));
+  const launcher = join(root, "bin", "hypit.mjs");
+  const result = spawnSync(process.execPath, [launcher, "version", "--json"], {
+    encoding: "utf8", windowsHide: true,
+    env: { ...process.env, HYPIT_DISTRIBUTION_ROOT: join(tmpdir(), "old-hypit"), HYPIT_CLI_LAUNCHER: join(tmpdir(), "old-hypit.mjs") },
+  });
+  assert.equal(result.status, 0, result.stderr);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.distribution, join(root, "."));
+  assert.equal(report.launcher, launcher);
+});
 
 test("version reads its Distribution without a project, Runtime or registry request", async () => {
   const root = await mkdtemp(join(tmpdir(), "hypit-version-"));

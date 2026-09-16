@@ -16,6 +16,11 @@ description: Getting started with Hypit development.
 
 Node.js and pnpm are the only hard requirements. The rest are needed only for live Builds.
 
+Before the first local render, run `hypit programs up --runtime <profile> --endpoint <render-instance>`.
+`hypit runtime up --runtime <profile>` also prepares the Profile's programs and starts its Worker.
+This browser preparation does not depend on pnpm allowing dependency install scripts.
+Use `hypit doctor --runtime <profile>` to inspect missing setup without installing it.
+
 ## Daily workflow
 
 ```bash
