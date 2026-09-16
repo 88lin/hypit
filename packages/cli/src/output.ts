@@ -878,6 +878,7 @@ function commandHelp(topic: string, colors: Palette): readonly string[] | undefi
       colors.accent(colors.strong("hypit programs")),
       colors.dim("Prepare and operate external programs declared by Endpoints in one Runtime Profile."),
       "",
+      "  hypit programs prepare [--runtime <profile>] [--endpoint <instance>]  # resources only; does not start services",
       "  hypit programs up [--runtime <profile>] [--workspace <project>] [--max-wait-ms <ms>]",
       "  hypit programs status [--runtime <profile>] [--workspace <project>]",
       "  hypit programs down [--runtime <profile>] [--workspace <project>]",
