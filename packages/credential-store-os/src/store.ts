@@ -142,8 +142,9 @@ function platformBackend(service: string) {
   }
   if (process.platform === "win32") return windowsBackend();
   // A Profile that selects this Store cannot be repaired by anything the user does here, and the
-  // other two Stores are the answer, so name them where the failure is read.
+  // other Stores are the answer, so name them where the failure is read.
   throw new Error("OS CredentialStore supports macOS and Windows only; select "
+    + "@hypit/credential-store-platform (platform locker, owner-private file on Linux), "
     + "@hypit/credential-store-file (owner-private local file) or @hypit/credential-store-env "
     + "(externally supplied value) in this Profile's credentials instead");
 }
