@@ -11,3 +11,7 @@ bytes do not appear in command arguments or temporary files.
 
 Use `hypit auth login <endpoint> --runtime <profile>` to write the selected credential and
 `hypit auth logout` to remove it.
+
+A Profile that must also run where no locker exists selects `@hypit/credential-store-platform`
+instead: this Store holds the credential on macOS and Windows, and an owner-private file holds it
+elsewhere. Selecting this Store by name still means this locker on every host that runs the Profile.
