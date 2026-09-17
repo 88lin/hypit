@@ -74,7 +74,7 @@ request does not silently select another account. Read the chosen Provider's REA
 ## Prepare only the services needed now
 
 ```bash
-hypit auth status
+hypit auth status media.local
 hypit doctor --endpoint media.local
 hypit runtime up --endpoint media.local
 hypit runtime status
