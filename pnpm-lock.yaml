@@ -693,9 +693,9 @@ importers:
       '@hypit/studio-adapter':
         specifier: workspace:*
         version: link:../studio-adapter
-      '@hypit/timeline':
+      '@hypit/temporal':
         specifier: workspace:*
-        version: link:../timeline
+        version: link:../temporal
 
   packages/cli:
     dependencies:
@@ -2144,6 +2144,9 @@ importers:
       '@hypit/timeline':
         specifier: workspace:*
         version: link:../timeline
+      '@hypit/visual-ir':
+        specifier: workspace:*
+        version: link:../visual-ir
 
   packages/performance-studio:
     dependencies:
@@ -3418,6 +3421,9 @@ importers:
       '@hypit/runtime-host-node':
         specifier: workspace:*
         version: link:../runtime-host-node
+      '@hypit/runtime-kit':
+        specifier: workspace:*
+        version: link:../runtime-kit
       '@hypit/runtime-local':
         specifier: workspace:*
         version: link:../runtime-local

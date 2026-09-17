@@ -25,6 +25,7 @@
     "@hypit/protocol": "workspace:*",
     "@hypit/provider-hypihub": "workspace:*",
     "@hypit/runtime": "workspace:*",
+    "@hypit/runtime-kit": "workspace:*",
     "@hypit/runtime-host-node": "workspace:*",
     "@hypit/runtime-local": "workspace:*",
     "@hypit/speech": "workspace:*",
