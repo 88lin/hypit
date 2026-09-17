@@ -632,6 +632,9 @@ importers:
       '@hypit/elaborator':
         specifier: workspace:*
         version: link:../elaborator
+      '@hypit/hyperframes':
+        specifier: workspace:*
+        version: link:../hyperframes
       '@hypit/markup':
         specifier: workspace:*
         version: link:../markup
