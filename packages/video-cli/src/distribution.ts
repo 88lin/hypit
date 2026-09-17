@@ -25,15 +25,18 @@ export const videoCliDistribution: CliDistribution = {
   initialRuntimeProfile: {
     format: "hypit.runtime-local@1",
     dataRoot: ".hypit/runtimes/local",
+    // The starter selects the portable Store, so the Profile it writes is openable and writable on
+    // Linux as well: macOS and Windows keep the platform locker, and a Linux host uses an
+    // owner-private file. `os` and `file` stay selectable by name for one explicit backend.
     credentials: {
-      os: { use: "@hypit/credential-store-os" },
+      platform: { use: "@hypit/credential-store-platform" },
     },
     endpoints: {
       "hypihub.default": {
         use: "@hypit/provider-hypihub",
         config: {
           baseUrl: "https://hypit.ai",
-          apiKey: { store: "os", key: "hypihub.oauth" },
+          apiKey: { store: "platform", key: "hypihub.oauth" },
         },
       },
       "media.local": {

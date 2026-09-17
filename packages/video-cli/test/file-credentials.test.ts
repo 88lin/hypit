@@ -20,7 +20,7 @@ test("an explicitly selected file Store supports CLI login, repair and logout wi
   await run("runtime", "init", "--workspace", root);
   const profilePath = join(root, "hypit.runtime.json");
   const profile = JSON.parse(await readFile(profilePath, "utf8"));
-  assert.equal(profile.credentials.os.use, "@hypit/credential-store-os", "initialization preserves the existing starter choice");
+  assert.equal(profile.credentials.platform.use, "@hypit/credential-store-platform", "initialization preserves the existing starter choice");
   profile.credentials = { file: { use: "@hypit/credential-store-file" } };
   profile.endpoints = { "hypihub.default": { ...profile.endpoints["hypihub.default"], config: {
     ...profile.endpoints["hypihub.default"].config,
