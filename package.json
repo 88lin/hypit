@@ -205,6 +205,7 @@
     "@hypit/credential-store-env": "workspace:*",
     "@hypit/credential-store-file": "workspace:*",
     "@hypit/credential-store-os": "workspace:*",
+    "@hypit/credential-store-platform": "workspace:*",
     "@hypit/deck-track": "workspace:*",
     "@hypit/deck-track-studio": "workspace:*",
     "@hypit/elevenlabs-speech": "workspace:*",
