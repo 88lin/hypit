@@ -632,6 +632,9 @@ importers:
       '@hypit/elaborator':
         specifier: workspace:*
         version: link:../elaborator
+      '@hypit/hyperframes':
+        specifier: workspace:*
+        version: link:../hyperframes
       '@hypit/markup':
         specifier: workspace:*
         version: link:../markup
@@ -3512,6 +3515,9 @@ importers:
       '@hypit/package-loader-node':
         specifier: workspace:*
         version: link:../package-loader-node
+      '@hypit/runtime-host-node':
+        specifier: workspace:*
+        version: link:../runtime-host-node
       '@hypit/yt-dlp-service-runtime':
         specifier: workspace:*
         version: link:../../services/yt-dlp
