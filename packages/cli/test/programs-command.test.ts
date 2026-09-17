@@ -360,6 +360,5 @@ test("Worker stop suggests Program control in the same project and Profile", asy
 test("programs prepare provisions resources through the controller without starting a worker", async () => {
   const calls: string[] = [];
   await runCli(["programs", "prepare", "/p/hypit.runtime.json", "--endpoint", "speech"], io, distribution(calls));
-  assert.ok(calls.some((call) => call.startsWith("prepare /p/hypit.runtime.json")));
-  assert.ok(!calls.some((call) => call.startsWith("up ")));
+  assert.deepEqual(calls, [`prepare ${resolve("/p/hypit.runtime.json")} {"endpoints":["speech"]}`]);
 });
