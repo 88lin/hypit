@@ -70,7 +70,7 @@ hypit runtime init
 ## 按当前需要准备服务
 
 ```bash
-hypit auth status
+hypit auth status media.local
 hypit doctor --endpoint media.local
 hypit runtime up --endpoint media.local
 hypit runtime status
