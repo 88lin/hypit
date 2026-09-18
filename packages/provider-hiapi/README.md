@@ -54,6 +54,13 @@ Runtime Profile example:
 
 ```json
 {
+  "format": "hypit.runtime-local@1",
+  "dataRoot": ".hypit/runtimes/local",
+  "credentials": {
+    "platform": {
+      "use": "@hypit/credential-store-platform"
+    }
+  },
   "endpoints": {
     "hiapi.default": {
       "use": "@hypit/provider-hiapi",
@@ -64,7 +71,8 @@ Runtime Profile example:
         "pollIntervalMs": 10000
       }
     }
-  }
+  },
+  "bindings": {}
 }
 ```
 
