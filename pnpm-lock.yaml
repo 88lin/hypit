@@ -3584,6 +3584,9 @@ importers:
       '@hypit/generation':
         specifier: workspace:*
         version: link:../generation
+      '@hypit/hyperframes':
+        specifier: workspace:*
+        version: link:../hyperframes
       '@hypit/markup':
         specifier: workspace:*
         version: link:../markup
@@ -3614,6 +3617,12 @@ importers:
       '@hypit/provider-tokendance':
         specifier: workspace:*
         version: link:../provider-tokendance
+      '@hypit/render-hyperframes':
+        specifier: workspace:*
+        version: link:../render-hyperframes
+      '@hypit/resource-store-fs':
+        specifier: workspace:*
+        version: link:../resource-store-fs
       '@hypit/runtime':
         specifier: workspace:*
         version: link:../runtime
