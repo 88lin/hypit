@@ -84,18 +84,26 @@ Runtime Profile example:
 
 ```json
 {
+  "format": "hypit.runtime-local@1",
+  "dataRoot": ".hypit/runtimes/local",
+  "credentials": {
+    "platform": {
+      "use": "@hypit/credential-store-platform"
+    }
+  },
   "endpoints": {
     "hypihub.default": {
       "use": "@hypit/provider-hypihub",
       "pool": "hypihub.default",
       "config": {
         "baseUrl": "https://hypit.ai",
-        "apiKey": { "store": "os", "key": "hypihub.oauth" },
+        "apiKey": { "store": "platform", "key": "hypihub.oauth" },
         "defaultConcurrency": 3,
         "pollIntervalMs": 10000
       }
     }
-  }
+  },
+  "bindings": {}
 }
 ```
 
