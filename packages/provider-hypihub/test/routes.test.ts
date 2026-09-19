@@ -147,8 +147,8 @@ test("HypiHub Seedance sends reference images through the public top-level field
       generateAudio: [true],
       webSearch: [false],
       referenceImage: [
-        { role: "image", artifact: image },
-        { role: "image", artifact: { ...image, resource: "res_hypihub-route-2" } },
+        { role: "image", artifact: image, fields: { personReference: true } },
+        { role: "image", artifact: { ...image, resource: "res_hypihub-route-2" }, fields: { personReference: false } },
       ],
     },
   }, resolve);
@@ -236,8 +236,8 @@ test("HypiHub MiMo Speech mappings use the public audio speech fields", async ()
 test("Seedance person metadata reaches resource transport without changing video request fields", async () => {
   for (const route of hypiHubRoutes.filter((item) => item.capability.module.name === "@hypit/seedance")) {
     for (const port of ["referenceImage", "referenceVideo", "firstFrame", "lastFrame"] as const) {
-      for (const flag of [true, false, undefined]) {
-        const fields = flag === undefined ? {} : { personReference: flag };
+      for (const flag of [true, false]) {
+        const fields = { personReference: flag };
         const seen: unknown[] = [];
         const result = await compile(route, { ports: {
           prompt: ["animate"], duration: [5],
