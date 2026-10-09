@@ -15,8 +15,14 @@ Runtime Profile 中引用它；安装本身不会启用服务。Provider 覆盖�
 并按该服务的输入限制报告不支持的请求；具体清单见各 Provider 的 README。
 服务提供、但不在这个范围内的模型，通过普通的 [Model 与 Provider](./providers.md) 扩展方式连接。
 
+在视频项目目录中，只执行所选服务对应的一条命令：
+
 ```bash
 npm install @hypit/provider-tokendance
+npm install @hypit/provider-hiapi
+npm install @hypit/provider-pollo
+npm install @hypit/provider-beatapi
+npm install @hypit/provider-monid
 ```
 
 ## 模型与工具 API 合作方

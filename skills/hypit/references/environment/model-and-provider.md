@@ -49,6 +49,16 @@ introduces partners and links their own documentation. A partnership alone does 
 particular capability, account or implementation is available. Carry an already suitable, chosen
 service forward.
 
+In the video project, run only the command for the selected service:
+
+```bash
+npm install @hypit/provider-tokendance
+npm install @hypit/provider-hiapi
+npm install @hypit/provider-pollo
+npm install @hypit/provider-beatapi
+npm install @hypit/provider-monid
+```
+
 BYOK means using an account/key supplied by the user. A HypiHub API key connects HypiHub; a different
 service's key connects that service. OAuth and static keys are credential methods, not different
 model capabilities. A Profile can mix services by capability.
