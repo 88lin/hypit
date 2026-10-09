@@ -1,6 +1,6 @@
 # `@hypit/ranking`
 
-Install in the video project alongside Hypit:
+Optional component, not installed with Hypit. Install in the video project:
 
 ```bash
 npm install @hypit/ranking

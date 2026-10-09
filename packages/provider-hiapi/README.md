@@ -1,6 +1,6 @@
 # `@hypit/provider-hiapi`
 
-Install in the video project alongside Hypit:
+Optional Provider, not installed with Hypit. Install in the video project:
 
 ```bash
 npm install @hypit/provider-hiapi
