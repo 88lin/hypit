@@ -250,8 +250,8 @@ silently changing an author's request.
 
 | Public import | Accurate interface owner |
 | --- | --- |
-| `@hypit/hypit/generation/model` | Model ports and Producer/Need construction |
-| `@hypit/hypit/generation` | Generated-media values and request/mapping helpers |
+| `@hypit/generation/model` | Model ports and Producer/Need construction |
+| `@hypit/generation` | Generated-media values and request/mapping helpers |
 | `@hypit/hypit/endpoint` | Execution, resources, credentials, support, receipts and capacity |
 | `@hypit/runtime-local/extension` | Profile activation, diagnostics and Managed Programs for the official local Runtime |
 | `@hypit/hypit/author`, `producer`, `admission`, `markup` | Author graphs, deterministic Producers, Type admission and Markup Surfaces respectively |

@@ -53,11 +53,15 @@ version selects the implementation; the logical `@1` identifies its author inter
 video uses those installed versions. Missing packages are reported with the information needed to
 install them.
 
+When upgrading an existing production, read the selected release's migration notes before changing
+its executable or component dependencies. The [0.3.1 project migration guide](https://github.com/hypit-ai/hypit/blob/main/migrations/0.3.1.md)
+covers SDK import changes and verification while preserving existing material and Results.
+
 ## Write and share an extension
 
 An external package develops against the narrow public owners it uses, such as
 `@hypit/hypit/author`, `@hypit/hypit/producer`, `@hypit/hypit/admission`,
-`@hypit/hypit/markup`, `@hypit/hypit/composition`, `@hypit/hypit/generation/model` or
+`@hypit/hypit/markup`, `@hypit/composition`, `@hypit/generation/model` or
 `@hypit/hypit/endpoint`. Use the selected `@hypit/hypit` release as a
 development dependency, compile the extension to JavaScript, and ship its own code and assets. Its
 `package.json` names an activation entry describing what it provides. The active Distribution
