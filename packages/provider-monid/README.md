@@ -1,5 +1,11 @@
 # `@hypit/provider-monid`
 
+Install in the video project alongside Hypit:
+
+```bash
+npm install @hypit/provider-monid
+```
+
 Hypit Runtime Provider for a [Monid](https://monid.ai) workspace. It runs Monid's generation
 endpoints through `POST /v1/run`, polls `GET /v1/runs/{runId}` until the run is terminal, downloads
 every returned file and stores it in the current Build.
